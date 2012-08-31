@@ -1,0 +1,25 @@
+<!--
+  @Name: views/admin/images/edit.html.erb
+  @Use:  This is a partial html page for form of editing and updating an image
+  @Created date: 24-07-2012
+  @Modified Date: 25-07-2012
+  @Company:  Mindfire Solutions
+-->
+<h1>Editing resource</h1>
+<div>
+
+  <!-- Checking for resources either an image or file . If file then only form is called for uploading else showing the image with form-->
+  <% unless @type == 'file' %>
+  <h4>Existing Image</h4>
+  <%= image_tag @resource.data.url(:small) %>
+  <% end %>
+</div>
+
+<div style="margin-top: 10px;">
+  <h4>
+    Upload New Resource To Replace
+  </h4>
+</div>
+
+<!-- Rendering the form for editing image-->
+<%= render 'form' %>

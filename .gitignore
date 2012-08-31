@@ -1,0 +1,13 @@
+.bundle/
+log/*.log
+pkg/
+test/dummy/db/*.sqlite3
+test/dummy/log/*.log
+test/dummy/tmp/
+test/dummy/.sass-cache
+.svn/
+mcms_resources-0.0.5.gem
+mcms_resources-0.0.4.gem
+mcms_resources-0.0.3.gem
+mcms_resources-0.0.2.gem
+mcms_resources-0.0.1.gem

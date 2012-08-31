@@ -1,0 +1,35 @@
+<!--
+  @Name: views/shared/admin/_form_actions.html.erb
+  @Use:  This is a partial for common submit button
+  @Created date: 25-07-2012
+  @Modified Date: 25-07-2012
+  @Company:  Mindfire Solutions
+-->
+
+<!-- Manipulating submit buttons texts and cancel button texts -->
+<%
+    submit_button_text  ||= t('.save')
+    submit_button_id    ||= "submit_button"
+    submit_button_title ||= nil
+    cancel_button_text  ||= t('.cancel')
+    cancel_title = t('.cancel_lose_changes')
+    cancel_button_id    ||= "cancel_button"
+    unless f.nil?      
+        cancel_url          ||= admin_resources_path
+    end
+%>
+<div class='form-actions'>
+  <div class='form-actions-left'>
+    <%= submit_tag submit_button_text,
+                   :id => submit_button_id,
+                   :name => nil,
+                   :class => "wymupdate button",
+                   :tooltip => submit_button_title  %>    
+
+    <%= link_to(cancel_button_text, cancel_url,
+                :title => cancel_title,
+                :id => cancel_button_id,
+                :class => "close_dialog button")  %>
+  </div>
+  
+</div>

@@ -1,0 +1,46 @@
+<!--
+  @Name: admin/blog/posts/_post.html.erb
+  @Use:  This is a partial for showing post records
+  @Created date: 08-06-2012
+  @Modified Date: 31-07-2012
+  @Company:  Mindfire Solutions
+-->
+
+<!--  Started the list record div -->
+<div class="alert issues-comment">
+  <div class="body">
+    <span class="mini-icon mini-icon-issue-comment"></span>
+    <span class='title'>
+
+      <!-- Checking for the type of record . If Ckeditor::Picture showing the image neither file name -->
+      <% if record.type == "Ckeditor::Picture"%>
+      <%= image_tag record.data.url(:thumb), :style => 'height: 60px;width: 60px;' %>
+      <% else %>
+      <%= record.data_file_name %>
+      <% end %>
+      
+    </span>
+
+    <span class='actions'>
+
+      <!-- Added action links like deleting and view or download files -->
+      <%= link_to image_tag("icons/delete.png"),  admin_resource_path(record) ,
+      :class => "cancel confirm-delete",
+      :title => 'Delete',
+      :method => :delete,
+      :confirm => "Are you sure to delete ?" %>
+
+      <!-- Checking for the type of record . If Ckeditor::Picture showing the image neither download file  -->
+      <% if record.type == "Ckeditor::Picture"%>
+
+      <%= link_to image_tag("icons/application_go.png"), record.data.url(:original),
+      :title => 'Show', :target => "_blank" %>
+      <% else %>
+      <%= link_to image_tag("icons/download.jpeg"), record.data.url,
+      :title => 'Download'%>
+      <% end %>
+
+    </span>
+    
+  </div>
+</div>

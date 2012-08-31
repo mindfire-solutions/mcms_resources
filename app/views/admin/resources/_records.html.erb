@@ -1,0 +1,13 @@
+<!--
+  @Name: admin/images/_records.html.erb
+  @Use:  This is a partial for showing image records
+  @Created date: 25-07-2012
+  @Modified Date: 25-07-2012
+  @Company:  Mindfire Solutions
+-->
+<ul id='sortable_list'>
+
+  <!-- Added partial for loop through resources -->
+  <%= render :partial => 'record', :collection => @resources %>
+  
+</ul>

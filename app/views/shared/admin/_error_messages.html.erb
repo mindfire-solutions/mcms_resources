@@ -1,0 +1,27 @@
+<!--
+  @Name: views/shared/admin/_error_messages.html.erb
+  @Use:  This is a partial html page for showing validation error messages with the rails error object
+  @Created date: 24-07-2012
+  @Modified Date: 24-07-2012
+  @Company:  Mindfire Solutions
+-->
+
+<!-- Added checking of error object -->
+<% if object.errors.any? %>
+<div class="error-explanation" id="error-explanation">
+  <p><%= t('.problems_in_following_fields') %>:</p>
+  <ul>
+  <% unless defined?(include_object_name) and include_object_name %>
+    <% object.errors.each do |key, value| %>
+      <li><%= value %></li>
+    <% end %>
+  <% else %>
+
+      <!-- Showing error object full erro messages -->
+    <% object.errors.full_messages.each do |value| %>
+      <li><%= value %></li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate mcms_resources Thing
+
+    This will create:
+        what/will/it/create

@@ -1,0 +1,47 @@
+<!--
+  @Name: views/admin/images/index.html.erb
+  @Use:  This is a html page for listing images with some common edit, delete preview links for desired operations
+  @Created date: 24-07-2012
+  @Modified Date: 24-07-2012
+  @Company:  Mindfire Solutions
+-->
+<%= javascript_include_tag :application %>
+<!-- Added flash hash loop through for extracting flash messages  like flash-error, flash-message, etc -->
+<% flash.each do |key, value| %>
+  <div id='flash' class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
+<!-- Started the listing records div -->
+<div id='records' class="news">
+
+  <!-- Checked if records present start the listing -->
+  <% if @resources.any? %>
+
+  <!-- Added will_paginate for pagination in rails -->
+    <%= will_paginate @resources %>
+
+  <!-- Render partial for individual records displaying-->
+    <%= render :partial => "records" %>
+
+  <!-- Added will_paginate for pagination in rails -->
+    <%= will_paginate @resources %>
+
+  <% else %>
+
+  <!-- If records not present showing No items -->
+  <p>
+    <strong>
+      <%= 'No Items Yet' %>
+    </strong>
+  </p>
+  <% end %>
+
+</div>
+
+<br />
+
+<!-- Rendering submenu for displaying at the right side -->
+<%= render :partial => 'submenu' %>
+

@@ -1,0 +1,22 @@
+<!--
+  @Name: views/admin/resources/show.html.erb
+  @Use:  This is a partial html page for show an image
+  @Created date: 24-07-2012
+  @Modified Date: 24-07-2012
+  @Company:  Mindfire Solutions
+-->
+<!-- Added notice flash messages -->
+<p id="notice"><%= notice %></p>
+
+<div>
+  <%= image_tag @resource.image.url(:large) %>
+</div>
+
+<!-- links added to edit or getting back to lists -->
+<div>
+  <%= link_to 'Edit', edit_admin_resource_path(@resource) %> |
+  <%= link_to 'Back', admin_resources_path %>
+</div>
+
+
+

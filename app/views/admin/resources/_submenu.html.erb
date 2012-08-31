@@ -1,0 +1,30 @@
+<!--
+  @Name: views/admin/images/_submenu.html.erb
+  @Use:  This is a partial html page for submenus
+  @Created date: 24-07-2012
+  @Modified Date: 27-07-2012
+  @Company:  Mindfire Solutions
+-->
+
+<!-- Started submenu list right side bar -->
+<div id="your-repos" class="repos">
+    <div class="top-bar">
+      <h2>Submenu Lists </h2>
+      <%= link_to 'New Image', new_admin_resource_path, :class =>"button new-repo" %>
+    </div>
+
+  <!-- ul started for adding lists-->
+    <ul class="repo-list" id="repo-listing">
+      <li class="submenu">
+        <%= link_to 'Add Resource', new_admin_resource_path, :class=>"owner" %>
+      </li>
+      
+      <li class="submenu">
+        <%= link_to 'All Files', admin_resources_path(:type => 'file'), :class=>"owner" %>
+      </li>
+
+      <li class="submenu">
+        <%= link_to 'All Images', admin_resources_path(:type => 'image'), :class=>"owner" %>
+      </li>
+    </ul>
+</div>

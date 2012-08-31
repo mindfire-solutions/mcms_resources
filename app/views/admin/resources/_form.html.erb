@@ -1,0 +1,29 @@
+<!--
+  @Name: views/admin/images/_form.html.erb
+  @Use:  This is a partial html page for form of creating and saving an image
+  @Created date: 24-07-2012
+  @Modified Date: 24-07-2012
+  @Company:  Mindfire Solutions
+-->
+
+<!-- Started the resource form -->
+<%= form_for [:admin, @resource] do |f| %>
+
+<!-- Render error messages partial for showing validaton error messages-->
+  <%= render :partial => "/shared/admin/error_messages",
+             :locals => {
+               :object => f.object,
+               :include_object_name => true
+             } %>
+
+<!-- Added hidden field for choosing type of resource. It can be of image or file  -->
+<%= hidden_field_tag :type , @type %>
+  <div class="field">
+      <%= f.file_field :data %>
+  </div>
+
+<!-- Render partial for form actions like submit buttons for the form -->
+  <%= render :partial => "/shared/admin/form_actions", :locals => { :f => f  } %>
+
+<!-- End of Form-->
+<% end %>
